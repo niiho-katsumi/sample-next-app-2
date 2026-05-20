@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import {
   type contactSchemaType,
   contactSchema,
-} from "../../schemas/contact.schema";
+} from "../../_schemas/contact.schema";
 import ErrorText from "../atoms/ErrorText";
 import LabelInput from "../molecules/LabelInput";
 import LabelTextErea from "../molecules/LabelTextErea";

@@ -1,4 +1,4 @@
-import { type contactSchemaType } from "../../schemas/contact.schema";
+import { type contactSchemaType } from "../../_schemas/contact.schema";
 import ContactForm from "../organisms/ContactForm";
 
 export default function Contact() {
@@ -14,7 +14,7 @@ export default function Contact() {
       );
 
       if (!res.ok) throw new Error(`httpエラー:${res.status}`);
-      
+
       alert("送信しました");
     } catch (error) {
       console.error(error);
