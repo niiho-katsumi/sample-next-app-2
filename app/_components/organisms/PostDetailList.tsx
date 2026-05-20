@@ -13,7 +13,7 @@ export default function PostDetailList({ post, omission, outline }: Props) {
   const { title, thumbnailUrl, createdAt, categories, content } = post;
   return (
     <>
-      <Thumbnail title={title} url={thumbnailUrl} />
+      <Thumbnail title={title} url={thumbnailUrl} width={768} height={384} />
       <div className="p-4">
         <PostItem
           createdAt={createdAt}
