@@ -1,13 +1,16 @@
 "use client";
+import Image from "next/image";
 type Props = {
   title: string;
   url: string;
+  width: number;
+  height: number;
 };
 
-export default function Thumbnail({ title, url }: Props) {
+export default function Thumbnail({ title, url, width, height }: Props) {
   return (
     <>
-      <img src={url} alt={title} />
+      <Image src={url} alt={title} width={width} height={height} />
     </>
   );
 }
