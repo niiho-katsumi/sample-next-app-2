@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
-import PostDetailList from "../organisms/PostDetailList";
+"use client";
+import { useParams } from "next/navigation";
+import PostDetailList from "../../_components/organisms/PostDetailList";
 import { useEffect, useState } from "react";
 import type { PostInfo } from "../../type";
 
-export default function PostDetail() {
+export default function Page() {
   const [post, setPost] = useState<PostInfo>();
   const [isLoading, setIsLoading] = useState(false);
 

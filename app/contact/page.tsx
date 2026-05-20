@@ -1,7 +1,8 @@
-import { type contactSchemaType } from "../../_schemas/contact.schema";
-import ContactForm from "../organisms/ContactForm";
+"use client";
+import ContactForm from "../_components/organisms/ContactForm";
+import { contactSchemaType } from "../_schemas/contact.schema";
 
-export default function Contact() {
+export default function Page() {
   const onSubmit = async (data: contactSchemaType) => {
     try {
       const res = await fetch(
