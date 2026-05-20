@@ -1,5 +1,7 @@
 "use client";
-import { Link } from "react-router-dom";
+
+import Link from "next/link";
+
 
 type Props = {
   text: string;
@@ -8,7 +10,7 @@ type Props = {
 
 export default function TextLink({ text, to }: Props) {
   return (
-    <Link className="text-white font-bold" to={to}>
+    <Link className="text-white font-bold" href={to}>
       {text}
     </Link>
   );
