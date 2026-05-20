@@ -1,3 +1,4 @@
+"use client";
 import Tag from "../atoms/Tag";
 
 type Props = {

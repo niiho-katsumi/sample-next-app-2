@@ -1,3 +1,4 @@
+"use client";
 import { Link } from "react-router-dom";
 import type { PostInfo } from "../../type";
 import PostItem from "../organisms/PostItem";

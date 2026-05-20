@@ -1,3 +1,4 @@
+"use client";
 import type { ReactNode } from "react";
 import Content from "../atoms/Content";
 import DateText from "../atoms/DateText";

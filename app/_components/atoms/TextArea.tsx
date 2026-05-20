@@ -1,3 +1,4 @@
+"use client";
 import type { ComponentProps } from "react";
 
 export default function TextArea(props: ComponentProps<"textarea">) {

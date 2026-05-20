@@ -1,3 +1,4 @@
+"use client";
 import type { PostInfo } from "../../type";
 import Thumbnail from "../atoms/Thumbnail";
 import PostItem from "./PostItem";

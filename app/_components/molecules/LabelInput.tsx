@@ -1,3 +1,4 @@
+"use client";
 import type { ComponentProps } from "react";
 import Label from "../atoms/Label";
 import Input from "../atoms/Input";

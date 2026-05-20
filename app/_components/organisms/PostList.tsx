@@ -1,3 +1,4 @@
+"use client";
 import type { PostInfo } from "../../type";
 import Post from "../molecules/Post";
 

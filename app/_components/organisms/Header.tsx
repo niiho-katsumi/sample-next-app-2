@@ -1,5 +1,5 @@
+"use client";
 import TextLink from "../atoms/TextLink";
-
 
 export default function Header() {
   return (

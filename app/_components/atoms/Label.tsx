@@ -1,8 +1,9 @@
+"use client";
 type Props = {
-    label : string;
-}
+  label: string;
+};
 
-export default function Label({ label }:Props) {
+export default function Label({ label }: Props) {
   return (
     <label className="w-60" htmlFor="name">
       {label}

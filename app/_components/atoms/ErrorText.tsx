@@ -1,3 +1,4 @@
+"use client";
 import type { FieldError } from "react-hook-form";
 
 type Props = {
