@@ -1,7 +1,7 @@
 "use client";
-import type { PostInfo } from "../../type";
-import Thumbnail from "../atoms/Thumbnail";
-import PostItem from "./PostItem";
+import Thumbnail from "@/app/(_shared)/_components/atoms/Thumbnail";
+import type { PostInfo } from "../../_types/type";
+import PostItem from "@/app/(_shared)/_components/organisms/PostItem";
 
 type Props = {
   post: PostInfo;

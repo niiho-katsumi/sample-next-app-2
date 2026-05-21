@@ -5,10 +5,11 @@ import {
   type contactSchemaType,
   contactSchema,
 } from "../../_schemas/contact.schema";
-import ErrorText from "../atoms/ErrorText";
-import LabelInput from "../molecules/LabelInput";
-import LabelTextErea from "../molecules/LabelTextErea";
-import Button from "../atoms/Button";
+import Button from "@/app/(_shared)/_components/atoms/Button";
+import ErrorText from "@/app/(_shared)/_components/atoms/ErrorText";
+import LabelInput from "./LabelInput";
+import LabelTextErea from "./LabelTextErea";
+
 
 type Props = {
   onSubmit: (data: contactSchemaType) => void;

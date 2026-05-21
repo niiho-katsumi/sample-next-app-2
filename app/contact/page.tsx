@@ -1,5 +1,5 @@
 "use client";
-import ContactForm from "../_components/organisms/ContactForm";
+import ContactForm from "./_components/ContactForm";
 import { contactSchemaType } from "../_schemas/contact.schema";
 
 export default function Page() {

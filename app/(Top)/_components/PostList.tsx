@@ -1,6 +1,7 @@
 "use client";
-import type { PostInfo } from "../../type";
-import Post from "../molecules/Post";
+import Post from "@/app/(_shared)/_components/molecules/Post";
+import type { PostInfo } from "../../posts/_types/type";
+
 
 type Props = {
   posts: PostInfo[];

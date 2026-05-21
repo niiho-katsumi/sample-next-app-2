@@ -1,7 +1,8 @@
 "use client";
+import Label from "@/app/(_shared)/_components/atoms/Label";
+import TextArea from "@/app/(_shared)/_components/atoms/TextArea";
 import type { ComponentProps } from "react";
-import Label from "../atoms/Label";
-import TextArea from "../atoms/TextArea";
+
 
 type Props = {
   label: string;
