@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import PostDetailList from "./_components/PostDetailList";
 import { useEffect, useState } from "react";
-import type { PostInfo } from "../_types/type";
+import type { PostInfo } from "../../_types/type";
 
 export default function Page() {
   const [post, setPost] = useState<PostInfo>();
