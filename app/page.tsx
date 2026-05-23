@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { PostInfo } from "./_types/type";
-import PostList from "./_components/PostList";
+import PostList from "./_components/molecules/PostList";
 
 export default function Home() {
   const [posts, setPosts] = useState<PostInfo[]>([]);
