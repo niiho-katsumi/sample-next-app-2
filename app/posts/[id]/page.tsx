@@ -2,10 +2,10 @@
 import { useParams } from "next/navigation";
 import PostDetailList from "./_components/PostDetailList";
 import { useEffect, useState } from "react";
-import type { PostInfo } from "../../_types/type";
+import type { MicroCmsPost } from "../../_types/type";
 
 export default function Page() {
-  const [post, setPost] = useState<PostInfo>();
+  const [post, setPost] = useState<MicroCmsPost>();
   const [isLoading, setIsLoading] = useState(false);
 
   const { id } = useParams<{ id: string }>();
@@ -14,7 +14,13 @@ export default function Page() {
     setIsLoading(true);
     const fetcher = async (): Promise<void> => {
       const res = await fetch(
-        `https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`,
+        `https://9e64p11jmv.microcms.io/api/v1/posts${id}`,
+        {
+          headers: {
+            "X-MICROCMS-API-KEY": process.env
+              .NEXT_PUBLIC_MICROCMS_API_KEY as string,
+          },
+        },
       );
       const data = await res.json();
       setPost(data.post);

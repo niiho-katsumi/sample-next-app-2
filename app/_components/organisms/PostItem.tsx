@@ -7,7 +7,10 @@ import TagList from "../molecules/TagList";
 
 type Props = {
   createdAt: string;
-  categories: string[];
+  categories: {
+    id: string;
+    name: string;
+  }[];
   title: string;
   content: ReactNode;
   omission: boolean;

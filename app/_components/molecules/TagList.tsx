@@ -2,14 +2,17 @@
 import Tag from "../atoms/Tag";
 
 type Props = {
-  categories: string[];
+  categories: {
+    id: string;
+    name: string;
+  }[];
 };
 
 export default function TagList({ categories }: Props) {
   return (
     <div className="flex flex-wrap">
       {categories.map((category) => (
-        <Tag key={crypto.randomUUID()} category={category} />
+        <Tag key={category.id} category={category.name} />
       ))}
     </div>
   );

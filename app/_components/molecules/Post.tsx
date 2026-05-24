@@ -2,10 +2,10 @@
 import Link from "next/link";
 
 import PostItem from "../organisms/PostItem";
-import { PostInfo } from "@/app/_types/type";
+import { MicroCmsPost } from "@/app/_types/type";
 
 type Props = {
-  PostInfo: PostInfo;
+  PostInfo: MicroCmsPost;
   omission: boolean;
   outline: boolean;
 };
