@@ -1,20 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
-import { PostInfo } from "./_types/type";
+import { MicroCmsPost } from "./_types/type";
 import PostList from "./_components/molecules/PostList";
 
 export default function Home() {
-  const [posts, setPosts] = useState<PostInfo[]>([]);
+  const [posts, setPosts] = useState<MicroCmsPost[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
     const fetcher = async (): Promise<void> => {
-      const res = await fetch(
-        "https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts",
-      );
-      const data = await res.json();
-      setPosts(data.posts);
+      const res = await fetch("https://9e64p11jmv.microcms.io/api/v1/posts", {
+        headers: {
+          "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_MICROCMS_API_KEY as string,
+        },
+      });
+      const { contents } = await res.json();
+      setPosts(contents);
       setIsLoading(false);
     };
     fetcher();
