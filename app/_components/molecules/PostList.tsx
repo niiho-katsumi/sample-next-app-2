@@ -13,7 +13,7 @@ export default function PostList({ posts, omission, outline }: Props) {
   return (
     <ul>
       {posts.map((post) => (
-        <>
+        <li key={post.id}>
           <Thumbnail
             title={post.thumbnail.url}
             url={post.thumbnail.url}
@@ -21,7 +21,6 @@ export default function PostList({ posts, omission, outline }: Props) {
             height={post.thumbnail.height}
           />
           <Post
-            key={post.id}
             PostInfo={{
               id: post.id,
               title: post.title,
@@ -33,7 +32,7 @@ export default function PostList({ posts, omission, outline }: Props) {
             omission={omission}
             outline={outline}
           />
-        </>
+        </li>
       ))}
     </ul>
   );
