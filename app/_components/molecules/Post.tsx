@@ -13,7 +13,6 @@ type Props = {
 export default function Post({ PostInfo, omission, outline }: Props) {
   const { id, title, categories, createdAt, content } = PostInfo;
   return (
-    <li className="flex flex-col m-0 p-0 list-none">
       <Link href={`/posts/${id}`}>
         <PostItem
           createdAt={createdAt}
@@ -24,6 +23,5 @@ export default function Post({ PostInfo, omission, outline }: Props) {
           outline={outline}
         />
       </Link>
-    </li>
   );
 }
