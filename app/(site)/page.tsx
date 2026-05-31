@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { MicroCmsPost } from "./_types/type";
-import PostList from "./_components/molecules/PostList";
+import { MicroCmsPost } from "../_types/type";
+import PostList from "../_components/molecules/PostList";
 
 export default function Home() {
   const [posts, setPosts] = useState<MicroCmsPost[]>([]);
@@ -12,7 +12,8 @@ export default function Home() {
     const fetcher = async (): Promise<void> => {
       const res = await fetch("https://9e64p11jmv.microcms.io/api/v1/posts", {
         headers: {
-          "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_MICROCMS_API_KEY as string,
+          "X-MICROCMS-API-KEY": process.env
+            .NEXT_PUBLIC_MICROCMS_API_KEY as string,
         },
       });
       const { contents } = await res.json();

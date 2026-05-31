@@ -1,6 +1,6 @@
 "use client";
+import { contactSchemaType } from "@/app/_schemas/contact.schema";
 import ContactForm from "./_components/ContactForm";
-import { contactSchemaType } from "../_schemas/contact.schema";
 
 export default function Page() {
   const onSubmit = async (data: contactSchemaType) => {
