@@ -1,6 +1,5 @@
 "use client";
 
-import Button from "@/app/_components/atoms/Button";
 import PostList from "./_components/PostList";
 import { useGetAdminPosts } from "../../_hooks/useGetAdminPosts";
 import LinkButton from "../../_components/LinkButton";
