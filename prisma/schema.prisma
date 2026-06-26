@@ -17,7 +17,7 @@ model Post {
   title String
   content String
   thumbnailUrl String @map("thumbnail_url")
-  createdAt DateTime @default(now()) @map("create_at")
+  createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   postCategories PostCategory[]
 }
@@ -25,7 +25,7 @@ model Post {
 model Category {
   id Int @id @default(autoincrement())
   name String
-  createdAt DateTime @default(now()) @map("create_at")
+  createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   posts PostCategory[]
 }
