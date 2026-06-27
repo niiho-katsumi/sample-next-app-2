@@ -14,13 +14,13 @@ export type Post = {
   thumbnailUrl: string;
   createdAt: Date;
   updatedAt: Date;
-  PostCategories: PostCategory[];
+  postCategories: PostCategory[];
 };
 
 export type PostCategory = {
   id: number;
-  PostId: number;
-  CategoryId: number;
+  postId: number;
+  category: Category;
 };
 
 export type Category = {
