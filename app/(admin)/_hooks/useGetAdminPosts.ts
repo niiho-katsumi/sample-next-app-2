@@ -7,10 +7,13 @@ export const useGetAdminPosts = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setIsLoading(true);
       try {
         const res = await fetch("/api/admin/posts");
         const data = await res.json();
         setPosts(data.posts);
+      } catch (error) {
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
