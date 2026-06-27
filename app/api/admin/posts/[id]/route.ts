@@ -8,6 +8,8 @@ export type Category = {
 
 export type PostShowResponse = {
   post: {
+
+    
     id: number;
     title: string;
     content: string;
@@ -27,7 +29,7 @@ export const GET = async (
   const { id } = await params;
 
   try {
-    const post = prisma.post.findUnique({
+    const post = await prisma.post.findUnique({
       where: { id: parseInt(id) },
       include: {
         postCategories: {
@@ -49,6 +51,7 @@ export const GET = async (
         { status: 404 },
       );
     }
+    return NextResponse.json({ post }, { status: 200 });
   } catch (error) {
     if (error instanceof Error)
       return NextResponse.json({ message: error.message }, { status: 400 });

@@ -76,7 +76,7 @@ export const PUT = async (
 ) => {
   const { id } = await params;
   //リクエストbodyを取得
-  const { name }: UpdateCategoryRequestBody = await request.json;
+  const { name }: UpdateCategoryRequestBody = await request.json();
 
   try {
     await prisma.category.update({
