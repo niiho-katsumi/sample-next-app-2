@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export default function useGetAdminCategory(id: string) {
   const [category, setCategory] = useState<Category>();
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchCategory = async () => {
@@ -12,13 +13,16 @@ export default function useGetAdminCategory(id: string) {
         const res = await fetch(`/api/admin/categories/${id}`);
         const data = await res.json();
         setCategory(data.category);
-      } catch (error) {
-        console.error(error);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error(error);
+          setError(error);
+        }
       } finally {
         setIsLoading(false);
       }
     };
     fetchCategory();
   }, [id]);
-  return { category, isLoading };
+  return { category, isLoading, error };
 }

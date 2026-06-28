@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export const useGetAdminCategories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -13,13 +14,16 @@ export const useGetAdminCategories = () => {
         const data = await res.json();
 
         setCategories(data.categories);
-      } catch (error) {
-        console.error(error);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error(error);
+          setError(error);
+        }
       } finally {
         setIsLoading(false);
       }
     };
     fetchPosts();
   }, []);
-  return { categories, isLoading };
+  return { categories, isLoading, error };
 };
