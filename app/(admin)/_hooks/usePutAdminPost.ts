@@ -2,11 +2,9 @@ import { adminPostSchemaType } from "@/app/_schemas/adminPost.schema";
 import { useState } from "react";
 
 export const usePutAdminPost = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
   const updatePost = async (id: string, data: adminPostSchemaType) => {
-    setIsLoading(true);
     const requestBody = {
       ...data,
       categories: data.categories.map((id) => ({ id })),
@@ -24,10 +22,8 @@ export const usePutAdminPost = () => {
         console.error(error);
         setError(error);
       }
-    } finally {
-      setIsLoading(false);
     }
   };
 
-  return { updatePost, isLoading, error };
+  return { updatePost, error };
 };
