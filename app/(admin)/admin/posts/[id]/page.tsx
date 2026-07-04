@@ -1,8 +1,8 @@
 "use client";
 
 import Heading from "@/app/(admin)/_components/Heading";
-import HeadingInput from "./_components/HeadingInput";
-import HeadingTextArea from "./_components/HeadingTextArea";
+import HeadingInput from "../_components/HeadingInput";
+import HeadingTextArea from "../_components/HeadingTextArea";
 import useGetAdminPost from "@/app/(admin)/_hooks/useGetAdminPost";
 import { useParams, useRouter } from "next/navigation";
 import { useForm, useWatch } from "react-hook-form";
@@ -13,7 +13,7 @@ import {
 } from "@/app/_schemas/adminPost.schema";
 import Button from "@/app/_components/atoms/Button";
 import { useGetAdminCategories } from "@/app/(admin)/_hooks/useGetAdminCategories";
-import HeadingButtons from "./_components/HeadingCategoryButtons";
+import HeadingButtons from "../_components/HeadingCategoryButtons";
 import { usePutAdminPost } from "@/app/(admin)/_hooks/usePutAdminPost";
 import { useDeleteAdminPost } from "@/app/(admin)/_hooks/useDeleteAdminPost";
 
