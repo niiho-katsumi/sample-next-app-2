@@ -1,6 +1,6 @@
 "use client";
-import Thumbnail from "@/app/_components/atoms/Thumbnail";
-import PostItem from "@/app/_components/organisms/PostItem";
+import Thumbnail from "@/app/_components/Thumbnail";
+import PostItem from "@/app/_components/PostItem";
 import { Post } from "@/app/_types/type";
 
 type Props = {

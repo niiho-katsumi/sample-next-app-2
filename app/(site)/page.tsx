@@ -1,5 +1,6 @@
 "use client";
-import PostList from "../_components/molecules/PostList";
+
+import PostList from "../_components/PostList";
 import { useGetPosts } from "./_hooks/useGetPosts";
 
 export default function Home() {

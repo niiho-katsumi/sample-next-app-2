@@ -1,11 +1,11 @@
 "use client";
 import type { ReactNode } from "react";
-import Content from "../atoms/Content";
-import DateText from "../atoms/DateText";
-import Title from "../atoms/Title";
-import TagList from "../molecules/TagList";
+import Content from "./Content";
+import DateText from "./DateText";
+import Title from "./Title";
 import { PostCategory } from "@/app/_types/type";
-import Thumbnail from "../atoms/Thumbnail";
+import Thumbnail from "./Thumbnail";
+import TagList from "./TagList";
 
 type Props = {
   createdAt: Date;

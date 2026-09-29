@@ -1,11 +1,14 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import Button from "@/app/_components/atoms/Button";
-import ErrorText from "@/app/_components/atoms/ErrorText";
+import Button from "@/app/_components/Button";
+import ErrorText from "@/app/_components/ErrorText";
 import LabelInput from "./LabelInput";
 import LabelTextErea from "./LabelTextErea";
-import { contactSchemaType, contactSchema } from "@/app/_schemas/contact.schema";
+import {
+  contactSchemaType,
+  contactSchema,
+} from "@/app/_schemas/contact.schema";
 
 type Props = {
   onSubmit: (data: contactSchemaType) => void;

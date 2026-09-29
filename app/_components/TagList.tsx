@@ -1,6 +1,7 @@
 "use client";
 import { PostCategory } from "@/app/_types/type";
-import Tag from "../atoms/Tag";
+import Tag from "./Tag";
+
 
 type Props = {
   categories: PostCategory[];

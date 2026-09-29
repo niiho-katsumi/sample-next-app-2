@@ -11,7 +11,7 @@ import {
   adminPostSchema,
   adminPostSchemaType,
 } from "@/app/_schemas/adminPost.schema";
-import Button from "@/app/_components/atoms/Button";
+import Button from "@/app/_components/Button";
 import { useGetAdminCategories } from "@/app/(admin)/_hooks/useGetAdminCategories";
 import HeadingButtons from "../_components/HeadingCategoryButtons";
 import { usePutAdminPost } from "@/app/(admin)/_hooks/usePutAdminPost";

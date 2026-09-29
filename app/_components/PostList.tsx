@@ -1,7 +1,7 @@
 "use client";
-import PostLink from "@/app/_components/molecules/PostLink";
-import type { Post } from "../../_types/type";
-import Thumbnail from "../atoms/Thumbnail";
+
+import { Post } from "../_types/type";
+import PostLink from "./PostLink";
 
 type Props = {
   posts: Post[];
@@ -14,7 +14,6 @@ export default function PostList({ posts, omission, outline }: Props) {
     <ul>
       {posts.map((post) => (
         <li key={post.id}>
-
           <PostLink
             PostInfo={{
               id: post.id,

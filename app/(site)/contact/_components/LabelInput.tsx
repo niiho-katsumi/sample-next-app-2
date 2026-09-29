@@ -1,6 +1,6 @@
 "use client";
-import Input from "@/app/_components/atoms/Input";
-import Label from "@/app/_components/atoms/Label";
+import Input from "@/app/_components/Input";
+import Label from "@/app/_components/Label";
 import type { ComponentProps } from "react";
 
 type Props = {

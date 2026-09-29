@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
-
-import PostItem from "../organisms/PostItem";
 import { Post } from "@/app/_types/type";
+import PostItem from "./PostItem";
 type Props = {
   PostInfo: Post;
   omission: boolean;
