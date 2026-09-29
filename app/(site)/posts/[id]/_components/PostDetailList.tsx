@@ -1,28 +1,25 @@
 "use client";
 import Thumbnail from "@/app/_components/atoms/Thumbnail";
-import type { MicroCmsPost } from "../../../_types/type";
 import PostItem from "@/app/_components/organisms/PostItem";
+import { Post } from "@/app/_types/type";
 
 type Props = {
-  post: MicroCmsPost;
+  post: Post;
   omission: boolean;
   outline: boolean;
 };
 
 export default function PostDetailList({ post, omission, outline }: Props) {
-  const { title, thumbnail, createdAt, categories, content } = post;
+  const { title, thumbnailUrl, createdAt, postCategories, content } = post;
   return (
     <>
-      <Thumbnail
-        title={title}
-        url={thumbnail.url}
-        width={thumbnail.width}
-        height={thumbnail.height}
-      />
+      <div className="flex items-center justify-center">
+        <Thumbnail title={title} url={thumbnailUrl} width={150} height={150} />
+      </div>
       <div className="p-4">
         <PostItem
           createdAt={createdAt}
-          categories={categories}
+          categories={postCategories}
           title={title}
           content={content}
           omission={omission}

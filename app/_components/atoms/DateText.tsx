@@ -1,6 +1,6 @@
 "use client";
 type Props = {
-  createdAt: string;
+  createdAt: Date;
 };
 
 export default function DateText({ createdAt }: Props) {

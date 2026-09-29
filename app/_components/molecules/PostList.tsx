@@ -1,10 +1,10 @@
 "use client";
-import Post from "@/app/_components/molecules/Post";
-import type { MicroCmsPost } from "../../_types/type";
+import PostLink from "@/app/_components/molecules/PostLink";
+import type { Post } from "../../_types/type";
 import Thumbnail from "../atoms/Thumbnail";
 
 type Props = {
-  posts: MicroCmsPost[];
+  posts: Post[];
   omission: boolean;
   outline: boolean;
 };
@@ -14,20 +14,16 @@ export default function PostList({ posts, omission, outline }: Props) {
     <ul>
       {posts.map((post) => (
         <li key={post.id}>
-          <Thumbnail
-            title={post.thumbnail.url}
-            url={post.thumbnail.url}
-            width={post.thumbnail.width}
-            height={post.thumbnail.height}
-          />
-          <Post
+
+          <PostLink
             PostInfo={{
               id: post.id,
               title: post.title,
-              thumbnail: post.thumbnail,
-              createdAt: post.createdAt,
-              categories: post.categories,
               content: post.content,
+              thumbnailUrl: post.thumbnailUrl,
+              createdAt: post.createdAt,
+              updatedAt: post.updatedAt,
+              postCategories: post.postCategories,
             }}
             omission={omission}
             outline={outline}
