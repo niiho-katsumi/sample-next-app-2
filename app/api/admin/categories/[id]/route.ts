@@ -1,5 +1,6 @@
 import { prisma } from "@/app/_libs/prisma";
 import { NextRequest, NextResponse } from "next/server";
+import { UpdateCategoryRequestBody } from "../route";
 
 export type CategoryShowResponse = {
   category: {
@@ -33,5 +34,50 @@ export const GET = async (
     if (error instanceof Error) {
       return NextResponse.json({ message: error.message }, { status: 400 });
     }
+  }
+};
+
+export const PUT = async (
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) => {
+  const { id } = await params;
+  //リクエストbodyを取得
+  const { name }: UpdateCategoryRequestBody = await request.json();
+
+  try {
+    await prisma.category.update({
+      where: {
+        id: parseInt(id),
+      },
+      data: {
+        name,
+      },
+    });
+
+    //レスポンスを返す
+    return NextResponse.json({ message: "OK" }, { status: 200 });
+  } catch (error) {
+    if (error instanceof Error)
+      return NextResponse.json({ message: error.message }, { status: 400 });
+  }
+};
+
+export const DELETE = async (
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) => {
+  const { id } = await params;
+  try {
+    await prisma.category.delete({
+      where: {
+        id: parseInt(id),
+      },
+    });
+
+    return NextResponse.json({ message: "OK" }, { status: 200 });
+  } catch (error) {
+    if (error instanceof Error)
+      return NextResponse.json({ message: error.message }, { status: 400 });
   }
 };
