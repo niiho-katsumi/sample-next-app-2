@@ -10,7 +10,7 @@ export default function page() {
 
   if (isLoading) return <p>読み込み中...</p>;
 
-  if (!posts) return <p>記事が見つかりません</p>;
+  if (posts.length === 0) return <p>記事が見つかりません</p>;
 
   return (
     <div className="block p-5 w-full">
