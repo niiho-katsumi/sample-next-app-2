@@ -1,9 +1,10 @@
 "use client";
 
-import PostList from "./_components/PostList";
 import { useGetAdminPosts } from "../../_hooks/useGetAdminPosts";
 import LinkButton from "../../_components/LinkButton";
 import Heading from "../../_components/Heading";
+import PostList from "../../_components/PostList";
+
 
 export default function page() {
   const { posts, isLoading } = useGetAdminPosts();
