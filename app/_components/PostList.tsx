@@ -1,10 +1,10 @@
 "use client";
 
-import { Post } from "../_types/type";
+import { PostsIndexResponse } from "../api/posts/route";
 import PostLink from "./PostLink";
 
 type Props = {
-  posts: Post[];
+  posts: PostsIndexResponse["posts"];
   omission: boolean;
   outline: boolean;
 };

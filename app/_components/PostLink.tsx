@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import { Post } from "@/app/_types/type";
 import PostItem from "./PostItem";
+import { PostShowResponse } from "../api/posts/[id]/route";
 type Props = {
-  PostInfo: Post;
+  PostInfo: PostShowResponse["post"];
   omission: boolean;
   outline: boolean;
 };

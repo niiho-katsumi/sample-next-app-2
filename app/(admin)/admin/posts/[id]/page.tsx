@@ -37,7 +37,8 @@ export default function Page() {
       title: post?.title ?? "",
       content: post?.content ?? "",
       thumbnailUrl: post?.thumbnailUrl ?? "",
-      categories: post?.postCategories.map((item) => item.category.id) ?? [],
+      categories:
+        post?.postCategories.map((item) => item.category.id) ?? [],
     },
   });
 

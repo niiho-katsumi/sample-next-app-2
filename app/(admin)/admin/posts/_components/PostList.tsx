@@ -1,8 +1,8 @@
-import { Post } from "@/app/_types/type";
 import PostItem from "./PostItem";
+import { PostsIndexResponse } from "@/app/api/admin/posts/route";
 
 type Props = {
-  posts: Post[];
+  posts: PostsIndexResponse["posts"];
 };
 
 export default function PostList({ posts }: Props) {

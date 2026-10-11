@@ -1,10 +1,10 @@
 "use client";
 import Thumbnail from "@/app/_components/Thumbnail";
 import PostItem from "@/app/_components/PostItem";
-import { Post } from "@/app/_types/type";
+import { PostShowResponse } from "@/app/api/posts/[id]/route";
 
 type Props = {
-  post: Post;
+  post: PostShowResponse["post"];
   omission: boolean;
   outline: boolean;
 };

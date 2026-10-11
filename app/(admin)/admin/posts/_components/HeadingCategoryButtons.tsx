@@ -1,9 +1,8 @@
-import { Category } from "@/app/_types/type";
-import { ComponentProps, useState } from "react";
+import { CategoriesIndexResponse } from "@/app/api/admin/categories/route";
 
 type Props = {
   heading: string;
-  values: Category[];
+  values: CategoriesIndexResponse["categories"];
   selectedIds: number[];
   onToggle: (id: number) => void;
 };

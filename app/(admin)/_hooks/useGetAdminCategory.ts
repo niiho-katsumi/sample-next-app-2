@@ -1,8 +1,8 @@
-import { Category } from "@/app/_types/type";
+import { CategoryShowResponse } from "@/app/api/admin/categories/[id]/route";
 import { useEffect, useState } from "react";
 
 export default function useGetAdminCategory(id: string) {
-  const [category, setCategory] = useState<Category>();
+  const [category, setCategory] = useState<CategoryShowResponse>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 

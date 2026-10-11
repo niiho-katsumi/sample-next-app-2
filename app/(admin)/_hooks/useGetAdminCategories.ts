@@ -1,8 +1,10 @@
-import { Category } from "@/app/_types/type";
+import { CategoriesIndexResponse } from "@/app/api/admin/categories/route";
 import { useEffect, useState } from "react";
 
 export const useGetAdminCategories = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState<
+    CategoriesIndexResponse["categories"]
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 

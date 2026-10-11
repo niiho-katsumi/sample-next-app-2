@@ -1,8 +1,8 @@
-import { Post } from "@/app/_types/type";
+import { PostsIndexResponse } from "@/app/api/posts/route";
 import { useEffect, useState } from "react";
 
 export const useGetPosts = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PostsIndexResponse["posts"]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 

@@ -3,13 +3,13 @@ import type { ReactNode } from "react";
 import Content from "./Content";
 import DateText from "./DateText";
 import Title from "./Title";
-import { PostCategory } from "@/app/_types/type";
 import Thumbnail from "./Thumbnail";
 import TagList from "./TagList";
+import { PostShowResponse } from "../api/posts/[id]/route";
 
 type Props = {
   createdAt: Date;
-  categories: PostCategory[];
+  categories: PostShowResponse["post"]["postCategories"];
   title: string;
   content: ReactNode;
   omission: boolean;

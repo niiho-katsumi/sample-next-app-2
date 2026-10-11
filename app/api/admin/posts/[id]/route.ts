@@ -8,8 +8,6 @@ export type Category = {
 
 export type PostShowResponse = {
   post: {
-
-    
     id: number;
     title: string;
     content: string;
