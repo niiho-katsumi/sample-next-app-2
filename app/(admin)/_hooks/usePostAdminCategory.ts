@@ -1,10 +1,13 @@
+import { useSupabaseSession } from "@/app/_hooks/useSupabaseSession";
 import { adminCategorySchemaType } from "@/app/_schemas/adminCategory.schema";
 import { useState } from "react";
 
 export const usePostAdminCategory = () => {
   const [error, setError] = useState<Error | null>(null);
+  const { token } = useSupabaseSession();
 
   const createCategory = async (data: adminCategorySchemaType) => {
+    if (!token) return;
     const requestBody = {
       ...data,
     };
@@ -13,6 +16,7 @@ export const usePostAdminCategory = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: token,
         },
         body: JSON.stringify(requestBody),
       });

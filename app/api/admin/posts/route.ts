@@ -1,5 +1,6 @@
 import { prisma } from "@/app/_libs/prisma";
-import { NextResponse } from "next/server";
+import { supabase } from "@/app/_libs/supabase";
+import { NextRequest, NextResponse } from "next/server";
 
 export type PostsIndexResponse = {
   posts: {
@@ -29,7 +30,14 @@ export type CreatePostResponse = {
   id: number;
 };
 
-export const GET = async () => {
+export const GET = async (request: NextRequest) => {
+  const token = request.headers.get("Authorization") ?? "";
+
+  const { error } = await supabase.auth.getUser(token);
+
+  if (error)
+    return NextResponse.json({ status: error.message }, { status: 400 });
+
   try {
     const posts = await prisma.post.findMany({
       include: {
@@ -57,6 +65,12 @@ export const GET = async () => {
 };
 
 export const POST = async (request: Request) => {
+  const token = request.headers.get("Authorization") ?? "";
+
+  const { error } = await supabase.auth.getUser(token);
+
+  if (error)
+    return NextResponse.json({ status: error.message }, { status: 400 });
   try {
     // リクエストのbodyを取得
     const body: CreatePostRequestBody = await request.json();
