@@ -34,6 +34,6 @@ export const useGetAdminCategories = () => {
       }
     };
     fetchPosts();
-  }, []);
+  }, [token]);
   return { categories, isLoading, error };
 };

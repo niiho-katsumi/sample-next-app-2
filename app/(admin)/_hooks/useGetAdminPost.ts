@@ -30,6 +30,6 @@ export default function useGetAdminPost(id: string) {
       }
     };
     fetchPost();
-  }, [id]);
+  }, [token, id]);
   return { post, isLoading, error };
 }

@@ -31,6 +31,6 @@ export default function useGetAdminCategory(id: string) {
       }
     };
     fetchCategory();
-  }, [id]);
+  }, [token, id]);
   return { category, isLoading, error };
 }

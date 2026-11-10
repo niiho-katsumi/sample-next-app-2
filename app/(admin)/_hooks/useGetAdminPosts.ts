@@ -9,7 +9,7 @@ export const useGetAdminPosts = () => {
   const { token } = useSupabaseSession();
 
   useEffect(() => {
-    if(!token) return;
+    if (!token) return;
     const fetchPosts = async () => {
       setIsLoading(true);
       try {
@@ -31,6 +31,6 @@ export const useGetAdminPosts = () => {
       }
     };
     fetchPosts();
-  }, []);
+  }, [token]);
   return { posts, isLoading, error };
 };
