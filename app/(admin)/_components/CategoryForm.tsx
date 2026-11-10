@@ -36,7 +36,7 @@ export default function CategoryForm({
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="block p-5 w-full">
         <Heading text={title} />
-        <HeadingInput heading={"カテゴリー名"} {...register("name")} />
+        <HeadingInput htmlFor="name" heading={"カテゴリー名"} {...register("name")} id="name" />
         {errors.name && (
           <p className="text-red-700 font-bold">{errors.name.message}</p>
         )}
