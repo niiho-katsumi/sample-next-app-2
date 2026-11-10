@@ -9,15 +9,17 @@ export default function page() {
 
   if (isLoading) return <p>読み込み中...</p>;
 
-  if (categories.length === 0) return <p>カテゴリーが見つかりません</p>;
-
   return (
     <div className="block p-5 w-full">
       <div className="flex justify-between">
         <Heading text={"カテゴリー一覧"} />
         <LinkButton to={"/admin/categories/new"} text={"新規投稿"}></LinkButton>
       </div>
-      <CategoryList categories={categories} />
+      {categories.length === 0 ? (
+        <p>カテゴリーが見つかりません</p>
+      ) : (
+        <CategoryList categories={categories} />
+      )}
     </div>
   );
 }

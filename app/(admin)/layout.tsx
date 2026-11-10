@@ -15,7 +15,7 @@ export default function layout({
       <SideBar />
 
       {/* メインエリア */}
-      <div className="ml-70 p-4">{children}</div>
+      <div className="ml-70 p-4 mt-18">{children}</div>
     </>
   );
 }

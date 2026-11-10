@@ -15,13 +15,13 @@ export default function Header() {
   const { session, isLoading } = useSupabaseSession();
 
   return (
-    <header className="flex items-center justify-between p-6 bg-[#333]">
+    <header className="fixed top-0 left-0 w-full flex items-center justify-between p-6 bg-[#333]">
       <TextLink text={"Blog"} to={"/"} />
       {!isLoading && (
         <div className="flex items-center gap-4">
           {session ? (
             <>
-              <TextLink text={"管理画面"} to={"/admin"} />
+              <TextLink text={"管理画面"} to={"/admin/posts"} />
               <button onClick={handleLogout} className="text-white font-bold">
                 ログアウト
               </button>

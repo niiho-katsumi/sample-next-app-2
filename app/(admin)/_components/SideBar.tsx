@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 
 export default function SideBar() {
   const pathname = usePathname();
-    const isSelected = (href: string) => {
-      return pathname.includes(href);
-    };
+  const isSelected = (href: string) => {
+    return pathname.includes(href);
+  };
 
   return (
     <aside className="fixed bg-gray-100 w-70 left-0 bottom-0 top-18">
