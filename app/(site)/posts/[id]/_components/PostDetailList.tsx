@@ -10,11 +10,16 @@ type Props = {
 };
 
 export default function PostDetailList({ post, omission, outline }: Props) {
-  const { title, thumbnailUrl, createdAt, postCategories, content } = post;
+  const { title, thumbnailImageKey, createdAt, postCategories, content } = post;
   return (
     <>
       <div className="flex items-center justify-center">
-        <Thumbnail title={title} url={thumbnailUrl} width={150} height={150} />
+        <Thumbnail
+          title={title}
+          url={thumbnailImageKey}
+          width={150}
+          height={150}
+        />
       </div>
       <div className="p-4">
         <PostItem

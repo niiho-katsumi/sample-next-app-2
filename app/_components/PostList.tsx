@@ -19,7 +19,7 @@ export default function PostList({ posts, omission, outline }: Props) {
               id: post.id,
               title: post.title,
               content: post.content,
-              thumbnailUrl: post.thumbnailUrl,
+              thumbnailImageKey: post.thumbnailImageKey,
               createdAt: post.createdAt,
               updatedAt: post.updatedAt,
               postCategories: post.postCategories,

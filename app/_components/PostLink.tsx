@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function PostLink({ PostInfo, omission, outline }: Props) {
-  const { id, title, postCategories, createdAt, content, thumbnailUrl } =
+  const { id, title, postCategories, createdAt, content, thumbnailImageKey } =
     PostInfo;
   return (
     <Link href={`/posts/${id}`}>
@@ -20,7 +20,7 @@ export default function PostLink({ PostInfo, omission, outline }: Props) {
         content={content}
         omission={omission}
         outline={outline}
-        thumbnailUrl={thumbnailUrl}
+        thumbnailImageKey={thumbnailImageKey}
       />
     </Link>
   );

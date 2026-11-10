@@ -3,9 +3,7 @@ import { z } from "zod";
 export const adminPostSchema = z.object({
   title: z.string().min(1, "タイトルを入力してください"),
   content: z.string().min(1, "内容を入力してください"),
-  thumbnailUrl: z.url({
-    message: "正しいURLを入力してください",
-  }),
+  thumbnailImageKey: z.string().min(1, "画像を選択してください"),
   categories: z.array(z.number()),
 });
 
