@@ -6,6 +6,7 @@ import Title from "./Title";
 import Thumbnail from "./Thumbnail";
 import TagList from "./TagList";
 import { PostShowResponse } from "../api/posts/[id]/route";
+import { getThumbnailImageUrl } from "../_libs/supabase";
 
 type Props = {
   createdAt: Date;
@@ -40,8 +41,8 @@ export default function PostItem({
           <Content omission={omission}>{content}</Content>
           {thumbnailImageKey && (
             <Thumbnail
-              title={thumbnailImageKey}
-              url={thumbnailImageKey}
+              title={title}
+              url={getThumbnailImageUrl(thumbnailImageKey)}
               width={70}
               height={70}
             />
