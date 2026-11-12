@@ -1,39 +1,16 @@
 import { useSupabaseSession } from "@/app/_hooks/useSupabaseSession";
+import { fetcherWithToken } from "@/app/_libs/fetcher";
 import { CategoriesIndexResponse } from "@/app/api/admin/categories/route";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 
 export const useGetAdminCategories = () => {
-  const [categories, setCategories] = useState<
-    CategoriesIndexResponse["categories"]
-  >([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
   const { token } = useSupabaseSession();
-
-  useEffect(() => {
-    if (!token) return;
-    const fetchPosts = async () => {
-      setIsLoading(true);
-      try {
-        const res = await fetch("/api/admin/categories", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-        });
-        const data = await res.json();
-
-        setCategories(data.categories);
-      } catch (error: unknown) {
-        if (error instanceof Error) {
-          console.error(error);
-          setError(error);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchPosts();
-  }, [token]);
-  return { categories, isLoading, error };
+  const { data, error, isLoading } = useSWR<
+    CategoriesIndexResponse,
+    Error,
+    [string, string] | null
+  >(token ? ["/api/admin/categories", token] : null, ([url, token]) =>
+    fetcherWithToken(url, token),
+  );
+  return { categories: data?.categories, isLoading, error };
 };
