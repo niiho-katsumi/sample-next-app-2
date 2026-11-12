@@ -16,7 +16,7 @@ export default function page() {
         <Heading text={"記事一覧"} />
         <LinkButton to={"/admin/posts/new"} text={"新規投稿"}></LinkButton>
       </div>
-      {posts.length === 0 ? (
+      {!posts || posts.length === 0 ? (
         <p>記事が見つかりません</p>
       ) : (
         <PostList posts={posts} />

@@ -15,7 +15,7 @@ export default function page() {
         <Heading text={"カテゴリー一覧"} />
         <LinkButton to={"/admin/categories/new"} text={"新規投稿"}></LinkButton>
       </div>
-      {categories.length === 0 ? (
+      {!categories || categories.length === 0 ? (
         <p>カテゴリーが見つかりません</p>
       ) : (
         <CategoryList categories={categories} />
