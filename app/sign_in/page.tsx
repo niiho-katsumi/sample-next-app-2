@@ -11,7 +11,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setIsLoading(true);
@@ -24,7 +24,7 @@ export default function Page() {
     if (error) {
       alert("ログインに失敗しました");
     } else {
-      router.replace('admin/posts');
+      router.replace("admin/posts");
     }
 
     setIsLoading(false);
