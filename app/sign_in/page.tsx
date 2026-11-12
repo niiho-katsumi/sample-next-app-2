@@ -1,24 +1,25 @@
 "use client";
-
-import { useState } from "react";
 import { supabase } from "../_libs/supabase";
 import { useRouter } from "next/navigation";
-
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { authSchemaType, authSchema } from "../_schemas/auth.schema";
+import HeadingInput from "../(admin)/_components/HeadingInput";
 
 export default function Page() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<authSchemaType>({
+    resolver: zodResolver(authSchema),
+  });
   const router = useRouter();
 
-  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    setIsLoading(true);
-
+  const onSubmit = async (data: authSchemaType) => {
     const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+      email: data.email,
+      password: data.password,
     });
 
     if (error) {
@@ -26,57 +27,48 @@ export default function Page() {
     } else {
       router.replace("admin/posts");
     }
-
-    setIsLoading(false);
   };
 
   return (
     <div className="flex justify-center pt-60">
-      <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-100">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-4 w-full max-w-100"
+      >
         <div>
-          <label
+          <HeadingInput
             htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            メールアドレス
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5"
+            heading={"メールアドレス"}
+            {...register("email")}
             placeholder="name@company.com"
             required
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            disabled={isLoading}
+            id="email"
+            disabled={isSubmitting}
           />
+          {errors.email && (
+            <p className="text-red-700 font-bold">{errors.email.message}</p>
+          )}
         </div>
         <div>
-          <label
+          <HeadingInput
             htmlFor="password"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            パスワード
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5"
+            heading={"パスワード"}
+            {...register("password")}
             placeholder="••••••••"
             required
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            disabled={isLoading}
+            id="password"
+            disabled={isSubmitting}
           />
+          {errors.password && (
+            <p className="text-red-700 font-bold">{errors.password.message}</p>
+          )}
         </div>
 
         <div>
           <button
             type="submit"
             className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            disabled={isLoading}
+            disabled={isSubmitting}
           >
             ログイン
           </button>
