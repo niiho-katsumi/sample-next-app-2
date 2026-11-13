@@ -15,7 +15,7 @@ export default function Page() {
   const initialValues = {
     title: "",
     content: "",
-    thumbnailUrl: "",
+    thumbnailImageKey: "",
     categories: [],
   };
 

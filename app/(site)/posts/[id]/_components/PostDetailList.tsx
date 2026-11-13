@@ -2,6 +2,7 @@
 import Thumbnail from "@/app/_components/Thumbnail";
 import PostItem from "@/app/_components/PostItem";
 import { PostShowResponse } from "@/app/api/posts/[id]/route";
+import { getThumbnailImageUrl } from "@/app/_libs/supabase";
 
 type Props = {
   post: PostShowResponse["post"];
@@ -10,11 +11,16 @@ type Props = {
 };
 
 export default function PostDetailList({ post, omission, outline }: Props) {
-  const { title, thumbnailUrl, createdAt, postCategories, content } = post;
+  const { title, thumbnailImageKey, createdAt, postCategories, content } = post;
   return (
     <>
       <div className="flex items-center justify-center">
-        <Thumbnail title={title} url={thumbnailUrl} width={150} height={150} />
+        <Thumbnail
+          title={title}
+          url={getThumbnailImageUrl(thumbnailImageKey)}
+          width={150}
+          height={150}
+        />
       </div>
       <div className="p-4">
         <PostItem

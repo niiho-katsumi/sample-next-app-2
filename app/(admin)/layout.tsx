@@ -1,16 +1,21 @@
 "use client";
 import React from "react";
 import SideBar from "./_components/SideBar";
+import { useRouteGuard } from "../_hooks/useRouteGuard";
 
 export default function layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useRouteGuard();
   return (
-    <div className="flex flex-1">
+    <>
+      {/* サイドバー */}
       <SideBar />
-      {children}
-    </div>
+
+      {/* メインエリア */}
+      <div className="ml-70 p-4 mt-18">{children}</div>
+    </>
   );
 }

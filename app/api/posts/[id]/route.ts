@@ -6,7 +6,7 @@ export type PostShowResponse = {
     id: number;
     title: string;
     content: string;
-    thumbnailUrl: string;
+    thumbnailImageKey: string;
     createdAt: Date;
     updatedAt: Date;
     postCategories: {
@@ -23,7 +23,7 @@ export type UpdatePostRequestBody = {
   title: string;
   content: string;
   categories: { id: number }[];
-  thumbnailUrl: string;
+  thumbnailImageKey: string;
 };
 
 export const GET = async (
@@ -71,8 +71,12 @@ export const PUT = async (
   // paramsの中にidが入っているので、それを取り出す
   const { id } = await params;
   // リクエストのbodyを取得
-  const { title, content, categories, thumbnailUrl }: UpdatePostRequestBody =
-    await request.json();
+  const {
+    title,
+    content,
+    categories,
+    thumbnailImageKey,
+  }: UpdatePostRequestBody = await request.json();
 
   try {
     // idを指定して、Postを更新
@@ -83,7 +87,7 @@ export const PUT = async (
       data: {
         title,
         content,
-        thumbnailUrl,
+        thumbnailImageKey,
       },
     });
     // 一旦、記事とカテゴリーの中間テーブルのレコードを全て削除

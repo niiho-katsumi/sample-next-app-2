@@ -1,4 +1,5 @@
 import { prisma } from "@/app/_libs/prisma";
+import { supabase } from "@/app/_libs/supabase";
 import { NextRequest, NextResponse } from "next/server";
 
 export type Category = {
@@ -11,7 +12,7 @@ export type PostShowResponse = {
     id: number;
     title: string;
     content: string;
-    thumbnailUrl: string;
+    thumbnailImageKey: string;
     createdAt: Date;
     updatedAt: Date;
     postCategories: {
@@ -21,10 +22,16 @@ export type PostShowResponse = {
 };
 
 export const GET = async (
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) => {
   const { id } = await params;
+  const token = request.headers.get("Authorization") ?? "";
+
+  const { error } = await supabase.auth.getUser(token);
+
+  if (error)
+    return NextResponse.json({ status: error.message }, { status: 400 });
 
   try {
     const post = await prisma.post.findUnique({

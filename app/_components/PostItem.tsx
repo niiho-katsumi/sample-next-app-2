@@ -6,6 +6,7 @@ import Title from "./Title";
 import Thumbnail from "./Thumbnail";
 import TagList from "./TagList";
 import { PostShowResponse } from "../api/posts/[id]/route";
+import { getThumbnailImageUrl } from "../_libs/supabase";
 
 type Props = {
   createdAt: Date;
@@ -14,7 +15,7 @@ type Props = {
   content: ReactNode;
   omission: boolean;
   outline: boolean;
-  thumbnailUrl?: string;
+  thumbnailImageKey?: string;
 };
 
 export default function PostItem({
@@ -24,7 +25,7 @@ export default function PostItem({
   content,
   omission,
   outline,
-  thumbnailUrl,
+  thumbnailImageKey,
 }: Props) {
   return (
     <>
@@ -38,10 +39,10 @@ export default function PostItem({
         <Title title={title} />
         <div className="flex justify-between items-center mr-3.5">
           <Content omission={omission}>{content}</Content>
-          {thumbnailUrl && (
+          {thumbnailImageKey && (
             <Thumbnail
-              title={thumbnailUrl}
-              url={thumbnailUrl}
+              title={title}
+              url={getThumbnailImageUrl(thumbnailImageKey)}
               width={70}
               height={70}
             />

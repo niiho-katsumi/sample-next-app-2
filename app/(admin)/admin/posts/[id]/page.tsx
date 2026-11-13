@@ -20,7 +20,7 @@ export default function Page() {
   const initialValues = {
     title: post?.title ?? "",
     content: post?.content ?? "",
-    thumbnailUrl: post?.thumbnailUrl ?? "",
+    thumbnailImageKey: post?.thumbnailImageKey ?? "",
     categories: post?.postCategories.map((item) => item.category.id) ?? [],
   };
 
