@@ -1,9 +1,11 @@
 import useSWR from "swr";
 import { fetcher, fetcherWithToken } from "../_libs/fetcher";
+import { useSupabaseSession } from "./useSupabaseSession";
 
-type fetchKey = string | [string, string] | null;
-
-export const useFetch = <T>(key: fetchKey) => {
+export const useFetch = <T>(url: string) => {
+  const { token } = useSupabaseSession();
+  const isRequiredToken = url.includes("/api/admin");
+  const key = isRequiredToken ? (token ? [url, token] : null) : url;
   const { data, error, isLoading } = useSWR<T>(
     key,
     (key: string | [string, string]) =>

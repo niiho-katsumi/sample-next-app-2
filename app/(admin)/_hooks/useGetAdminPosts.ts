@@ -4,8 +4,7 @@ import { PostsIndexResponse } from "@/app/api/admin/posts/route";
 
 export const useGetAdminPosts = () => {
   const { token } = useSupabaseSession();
-  const { data, error, isLoading } = useFetch<PostsIndexResponse>(
-    token ? ["/api/admin/posts", token] : null
-  );
+  const { data, error, isLoading } =
+    useFetch<PostsIndexResponse>("/api/admin/posts");
   return { posts: data?.posts, isLoading, error };
 };
