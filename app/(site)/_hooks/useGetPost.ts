@@ -1,11 +1,9 @@
-import { fetcher } from "@/app/_libs/fetcher";
+import { useFetch } from "@/app/_hooks/useFetch";
 import { PostShowResponse } from "@/app/api/posts/[id]/route";
-import useSWR from "swr";
 
 export const useGetPost = (id: string) => {
-  const { data, error, isLoading } = useSWR<PostShowResponse>(
+  const { data, error, isLoading } = useFetch<PostShowResponse>(
     `/api/posts/${id}`,
-    fetcher,
   );
   return { post: data?.post, isLoading, error };
 };
